@@ -1,0 +1,62 @@
+@use "../../styles/constants" as c;
+@use "../../styles/mixins" as m;
+
+.wrapper {
+  min-height: 100vh;
+  background-color: #F2F2F2;
+}
+
+.header {
+  @include m.flex(space-between);
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  padding: 15px;
+  
+  > h1 {
+    font-size: 42px;
+    font-weight: 500;
+    color: c.$C_WHITE;
+  }
+
+  > .logo {
+    width : 20%;
+  }
+
+  .inputWrapper {
+    > input {
+      width: 200px;
+      padding: 12px;
+      border: 1px solid c.$C_GREEN;
+      border-radius: 8px;
+    }
+
+    > button {
+      width: 80px;
+      background-color: c.$C_BLUE;
+      border: 0px;
+      border-radius: 8px;
+      color: c.$C_WHITE;
+      padding: 12px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+  }
+}
+
+.productsWrapper {
+  @include m.flex(center, center, column);
+
+  > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    column-gap: 12px;
+    row-gap: 8px;
+    max-height: calc(100vh - 82px);
+    width: 100%;
+    padding: 20px;
+
+    overflow-y: scroll;
+    flex-wrap: wrap;
+  }
+}
